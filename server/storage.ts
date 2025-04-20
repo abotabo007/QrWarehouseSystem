@@ -113,6 +113,31 @@ export class DatabaseStorage implements IStorage {
           displayName: "CRI 522 AF"
         });
       }
+      
+      // Aggiungi altri veicoli
+      const vehicle3 = await this.getVehicleByCode("CRI 638 AG 151203");
+      if (!vehicle3) {
+        await this.createVehicle({
+          code: "CRI 638 AG 151203",
+          displayName: "CRI 638 AG"
+        });
+      }
+      
+      const vehicle4 = await this.getVehicleByCode("CRI 745 AH 151204");
+      if (!vehicle4) {
+        await this.createVehicle({
+          code: "CRI 745 AH 151204",
+          displayName: "CRI 745 AH"
+        });
+      }
+      
+      const vehicle5 = await this.getVehicleByCode("CRI 856 AJ 151205");
+      if (!vehicle5) {
+        await this.createVehicle({
+          code: "CRI 856 AJ 151205",
+          displayName: "CRI 856 AJ"
+        });
+      }
     } catch (error) {
       console.error("Error seeding initial data:", error);
     }
