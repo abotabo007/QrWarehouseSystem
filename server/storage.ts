@@ -234,7 +234,7 @@ export class DatabaseStorage implements IStorage {
     const result = await db
       .delete(inventory)
       .where(eq(inventory.id, id));
-    return result.rowCount > 0;
+    return result.rowCount !== null && result.rowCount > 0;
   }
   
   async getAllInventoryItems(): Promise<InventoryItem[]> {

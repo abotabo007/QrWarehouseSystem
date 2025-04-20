@@ -53,6 +53,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // If user doesn't exist, create a new one
       if (!user) {
         user = await storage.createUser({
+          username: `user_${userData.fiscalCode}`,
+          password: "default",
           ...userData,
           isAdmin: false,
           isWarehouseManager: false
@@ -84,6 +86,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         // Durante lo sviluppo, consenti l'accesso con l'utente amministratore predefinito
         if (fiscalCode === "ADMIN123456789") {
           user = await storage.createUser({
+            username: "admin",
+            password: "admin123",
             name: "Admin",
             surname: "User",
             fiscalCode: fiscalCode,
@@ -121,6 +125,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         // Durante lo sviluppo, consenti l'accesso con gli utenti magazzino predefiniti
         if (fiscalCode === "MAGAZZINO1234567" || fiscalCode === "MAGAZZINO7654321") {
           user = await storage.createUser({
+            username: "magazzino",
+            password: "magazzino123",
             name: "Magazzino",
             surname: "User",
             fiscalCode: fiscalCode,
