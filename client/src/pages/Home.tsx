@@ -11,8 +11,8 @@ export default function Home() {
   const [showScanner, setShowScanner] = useState(false);
   
   const handleScan = (vehicleCode: string) => {
-    // Redirect to vehicle checklist page with the scanned vehicle code
-    setLocation(`/veicolo/${encodeURIComponent(vehicleCode)}`);
+    // Redirect to scanner page that will show login/register options
+    setLocation(`/scanner`);
   };
   
   return (

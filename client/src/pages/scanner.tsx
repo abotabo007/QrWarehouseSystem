@@ -27,13 +27,12 @@ export default function Scanner() {
       
       toast({
         title: "QR Code scansionato",
-        description: "Reindirizzamento all'autenticazione...",
+        description: "Seleziona un'opzione per procedere",
+        duration: 3000,
       });
       
-      // Redirect to auth after a short delay
-      setTimeout(() => {
-        setLocation("/auth");
-      }, 1500);
+      // Non facciamo redirect automatico - mostriamo le opzioni
+      // L'utente dovrà scegliere tra Accedi e Registrati
     }
   };
 
@@ -66,9 +65,9 @@ export default function Scanner() {
               </div>
             </div>
             <div className="flex items-center">
-              <Link href="/auth">
-                <Button size="sm" variant="primary">
-                  Accedi
+              <Link href="/scanner">
+                <Button size="sm" variant="default">
+                  Scanner
                 </Button>
               </Link>
             </div>
@@ -102,7 +101,15 @@ export default function Scanner() {
                     <div className="text-center p-4">
                       <CheckCircle2 className="h-12 w-12 text-green-500 mx-auto mb-2" />
                       <p className="text-green-600 font-medium">QR scansionato con successo!</p>
-                      <p className="text-sm text-gray-500 mt-1">Reindirizzamento...</p>
+                      <p className="text-sm text-gray-500 mt-1">Seleziona un'opzione:</p>
+                      <div className="flex space-x-2 mt-3 justify-center">
+                        <Link href="/login">
+                          <Button variant="default">Accedi</Button>
+                        </Link>
+                        <Link href="/register">
+                          <Button variant="outline">Registrati</Button>
+                        </Link>
+                      </div>
                     </div>
                   ) : scanState === ScanState.ERROR ? (
                     <div className="text-center p-4">

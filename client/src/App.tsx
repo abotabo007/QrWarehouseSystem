@@ -7,13 +7,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 // Import pages
 import Home from "@/pages/Home";
 import VehicleSelect from "@/pages/VehicleSelect";
-import Login from "@/pages/Login";
+import LoginPage from "@/pages/login";
+import RegisterPage from "@/pages/register";
 import Checklist from "@/pages/Checklist";
 import AdminLogin from "@/pages/AdminLogin";
 import AdminPanel from "@/pages/AdminPanel";
 import WarehouseLogin from "@/pages/WarehouseLogin";
 import Warehouse from "@/pages/Warehouse";
 import QRGeneratorPage from "@/pages/QRGeneratorPage";
+import Scanner from "@/pages/scanner";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -21,8 +23,12 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/veicoli" component={VehicleSelect} />
-      <Route path="/veicolo/:vehicleCode" component={Login} />
+      <Route path="/scanner" component={Scanner} />
+      <Route path="/login" component={LoginPage} />
+      <Route path="/register" component={RegisterPage} />
+      <Route path="/veicolo/:vehicleCode" component={LoginPage} />
       <Route path="/checklist/:vehicleCode" component={Checklist} />
+      <Route path="/checklist" component={Checklist} />
       <Route path="/admin-login" component={AdminLogin} />
       <Route path="/admin" component={AdminPanel} />
       <Route path="/qr-generator" component={QRGeneratorPage} />
