@@ -5,9 +5,11 @@ import session from "express-session";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
 import { storage } from "./storage";
-import { User as SelectUser, loginSchema, registerSchema } from "@shared/schema";
+import { User as SelectUser, loginSchema, registerSchema, users } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import { eq } from "drizzle-orm";
+import { db } from "./db";
 
 declare global {
   namespace Express {
@@ -36,20 +38,20 @@ export function setupAuth(app: Express) {
 
   passport.use(
     new LocalStrategy({
-      usernameField: 'fiscalCode',
+      usernameField: 'username',
       passwordField: 'password'
-    }, async (fiscalCode, password, done) => {
+    }, async (username, password, done) => {
       try {
-        const user = await storage.getUserByFiscalCode(fiscalCode);
+        // Primo controllo per nome utente
+        const [user] = await db.select().from(users).where(eq(users.username, username));
         
         if (!user) {
-          return done(null, false, { message: "Codice fiscale non trovato" });
+          return done(null, false, { message: "Nome utente non trovato" });
         }
         
-        // Handle special case for warehouse credentials
-        if (fiscalCode === "MAGAZZINO1234567") {
-          // Implement direct success for warehouse credentials
-          return done(null, user);
+        // Controllo password
+        if (user.password !== password) {
+          return done(null, false, { message: "Password non valida" });
         }
         
         return done(null, user);
@@ -73,14 +75,22 @@ export function setupAuth(app: Express) {
     try {
       const userData = registerSchema.parse(req.body);
       
-      // Check if user already exists
-      const existingUser = await storage.getUserByFiscalCode(userData.fiscalCode);
-      if (existingUser) {
-        return res.status(400).json({ message: "Utente già registrato" });
+      // Check if user already exists by username or fiscal code
+      const [userByFiscalCode] = await db.select().from(users).where(eq(users.fiscalCode, userData.fiscalCode));
+      const [userByUsername] = await db.select().from(users).where(eq(users.username, userData.username));
+      
+      if (userByFiscalCode) {
+        return res.status(400).json({ message: "Codice fiscale già registrato" });
       }
       
-      // Create user without password for now
+      if (userByUsername) {
+        return res.status(400).json({ message: "Nome utente già in uso" });
+      }
+      
+      // Create user with all required fields
       const user = await storage.createUser({
+        username: userData.username,
+        password: userData.password,
         name: userData.name,
         surname: userData.surname,
         fiscalCode: userData.fiscalCode,

@@ -73,6 +73,8 @@ export class DatabaseStorage implements IStorage {
       const adminUser = await this.getUserByFiscalCode("ADMIN123456789");
       if (!adminUser) {
         await this.createUser({
+          username: "admin",
+          password: "admin123",
           name: "Admin",
           surname: "User",
           fiscalCode: "ADMIN123456789",
@@ -85,6 +87,8 @@ export class DatabaseStorage implements IStorage {
       const warehouseUser = await this.getUserByFiscalCode("MAGAZZINO1234567");
       if (!warehouseUser) {
         await this.createUser({
+          username: "magazzino",
+          password: "magazzino123",
           name: "Magazzino",
           surname: "Manager",
           fiscalCode: "MAGAZZINO1234567",

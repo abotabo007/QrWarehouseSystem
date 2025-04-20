@@ -4,13 +4,14 @@ import { z } from "zod";
 
 // Authentication schemas (for validation)
 export const loginSchema = z.object({
-  fiscalCode: z.string().min(1, "Codice fiscale è richiesto"),
+  username: z.string().min(1, "Nome utente è richiesto"),
   password: z.string().min(1, "Password è richiesta")
 });
 
 export const registerSchema = z.object({
   name: z.string().min(1, "Nome è richiesto"),
   surname: z.string().min(1, "Cognome è richiesto"),
+  username: z.string().min(3, "Nome utente deve essere di almeno 3 caratteri"),
   fiscalCode: z.string().min(1, "Codice fiscale è richiesto"),
   password: z.string().min(6, "Password deve essere di almeno 6 caratteri")
 });
@@ -18,6 +19,8 @@ export const registerSchema = z.object({
 // User schema
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),
+  username: text("username").notNull().unique(),
+  password: text("password"),
   name: text("name").notNull(),
   surname: text("surname").notNull(),
   fiscalCode: text("fiscal_code").notNull().unique(),
@@ -26,6 +29,8 @@ export const users = pgTable("users", {
 });
 
 export const insertUserSchema = createInsertSchema(users).pick({
+  username: true,
+  password: true,
   name: true,
   surname: true,
   fiscalCode: true,
