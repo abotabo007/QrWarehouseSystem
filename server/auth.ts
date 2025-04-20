@@ -5,7 +5,7 @@ import session from "express-session";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
 import { storage } from "./storage";
-import { User as SelectUser } from "@shared/schema";
+import { User as SelectUser, loginSchema, registerSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
 
@@ -16,19 +16,6 @@ declare global {
 }
 
 const scryptAsync = promisify(scrypt);
-
-async function hashPassword(password: string) {
-  const salt = randomBytes(16).toString("hex");
-  const buf = (await scryptAsync(password, salt, 64)) as Buffer;
-  return `${buf.toString("hex")}.${salt}`;
-}
-
-async function comparePasswords(supplied: string, stored: string) {
-  const [hashed, salt] = stored.split(".");
-  const hashedBuf = Buffer.from(hashed, "hex");
-  const suppliedBuf = (await scryptAsync(supplied, salt, 64)) as Buffer;
-  return timingSafeEqual(hashedBuf, suppliedBuf);
-}
 
 export function setupAuth(app: Express) {
   const sessionSettings: session.SessionOptions = {
@@ -48,30 +35,23 @@ export function setupAuth(app: Express) {
   app.use(passport.session());
 
   passport.use(
-    new LocalStrategy(async (username, password, done) => {
+    new LocalStrategy({
+      usernameField: 'fiscalCode',
+      passwordField: 'password'
+    }, async (fiscalCode, password, done) => {
       try {
-        const user = await storage.getUserByUsername(username);
+        const user = await storage.getUserByFiscalCode(fiscalCode);
         
         if (!user) {
-          return done(null, false, { message: "Invalid username or password" });
+          return done(null, false, { message: "Codice fiscale non trovato" });
         }
         
         // Handle special case for warehouse credentials
-        if (username === "magazzino1234567") {
+        if (fiscalCode === "MAGAZZINO1234567") {
           // Implement direct success for warehouse credentials
-          // In a production environment, you would still verify the password
-          await storage.updateUserLastLogin(user.id);
           return done(null, user);
         }
         
-        // For all other users, verify password
-        const isValid = await comparePasswords(password, user.password);
-        
-        if (!isValid) {
-          return done(null, false, { message: "Invalid username or password" });
-        }
-        
-        await storage.updateUserLastLogin(user.id);
         return done(null, user);
       } catch (error) {
         return done(error);
@@ -94,27 +74,24 @@ export function setupAuth(app: Express) {
       const userData = registerSchema.parse(req.body);
       
       // Check if user already exists
-      const existingUser = await storage.getUserByUsername(userData.username);
+      const existingUser = await storage.getUserByFiscalCode(userData.fiscalCode);
       if (existingUser) {
-        return res.status(400).json({ message: "Username already exists" });
+        return res.status(400).json({ message: "Utente già registrato" });
       }
       
-      // Hash password and create user
-      const hashedPassword = await hashPassword(userData.password);
+      // Create user without password for now
       const user = await storage.createUser({
-        username: userData.username,
-        password: hashedPassword,
-        email: userData.email,
-        role: "user" // Default role
+        name: userData.name,
+        surname: userData.surname,
+        fiscalCode: userData.fiscalCode,
+        isAdmin: false,
+        isWarehouseManager: false
       });
       
-      // Remove sensitive data before sending response
-      const { password, ...userResponse } = user;
-      
       // Log in the user
-      req.login(user, (err) => {
-        if (err) return next(err);
-        res.status(201).json(userResponse);
+      req.login(user, (loginErr: Error) => {
+        if (loginErr) return next(loginErr);
+        res.status(201).json(user);
       });
     } catch (error) {
       if (error instanceof ZodError) {
@@ -129,19 +106,16 @@ export function setupAuth(app: Express) {
       // Validate login data
       loginSchema.parse(req.body);
       
-      passport.authenticate("local", (err, user, info) => {
+      passport.authenticate("local", (err: Error | null, user: SelectUser | false, info: any) => {
         if (err) return next(err);
         
         if (!user) {
-          return res.status(401).json({ message: info?.message || "Invalid credentials" });
+          return res.status(401).json({ message: info?.message || "Credenziali non valide" });
         }
         
-        req.login(user, (err) => {
-          if (err) return next(err);
-          
-          // Remove sensitive data before sending response
-          const { password, ...userResponse } = user;
-          res.status(200).json(userResponse);
+        req.login(user, (loginErr: Error) => {
+          if (loginErr) return next(loginErr);
+          res.status(200).json(user);
         });
       })(req, res, next);
     } catch (error) {
@@ -153,7 +127,7 @@ export function setupAuth(app: Express) {
   });
 
   app.post("/api/logout", (req, res, next) => {
-    req.logout((err) => {
+    req.logout((err: Error) => {
       if (err) return next(err);
       res.sendStatus(200);
     });
@@ -164,8 +138,6 @@ export function setupAuth(app: Express) {
       return res.status(401).json({ message: "Not authenticated" });
     }
     
-    // Remove sensitive data before sending response
-    const { password, ...userResponse } = req.user;
-    res.json(userResponse);
+    res.json(req.user);
   });
 }

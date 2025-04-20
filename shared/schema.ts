@@ -2,6 +2,19 @@ import { pgTable, text, serial, integer, boolean, timestamp, pgEnum } from "driz
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
+// Authentication schemas (for validation)
+export const loginSchema = z.object({
+  fiscalCode: z.string().min(1, "Codice fiscale è richiesto"),
+  password: z.string().min(1, "Password è richiesta")
+});
+
+export const registerSchema = z.object({
+  name: z.string().min(1, "Nome è richiesto"),
+  surname: z.string().min(1, "Cognome è richiesto"),
+  fiscalCode: z.string().min(1, "Codice fiscale è richiesto"),
+  password: z.string().min(6, "Password deve essere di almeno 6 caratteri")
+});
+
 // User schema
 export const users = pgTable("users", {
   id: serial("id").primaryKey(),

@@ -62,6 +62,56 @@ export class DatabaseStorage implements IStorage {
       pool,
       createTableIfMissing: true
     });
+    
+    // Ensure we have default user data
+    this.seedInitialData();
+  }
+  
+  private async seedInitialData() {
+    try {
+      // Check if admin user exists
+      const adminUser = await this.getUserByFiscalCode("ADMIN123456789");
+      if (!adminUser) {
+        await this.createUser({
+          name: "Admin",
+          surname: "User",
+          fiscalCode: "ADMIN123456789",
+          isAdmin: true,
+          isWarehouseManager: false
+        });
+      }
+      
+      // Check if warehouse manager exists
+      const warehouseUser = await this.getUserByFiscalCode("MAGAZZINO1234567");
+      if (!warehouseUser) {
+        await this.createUser({
+          name: "Magazzino",
+          surname: "Manager",
+          fiscalCode: "MAGAZZINO1234567",
+          isAdmin: false,
+          isWarehouseManager: true
+        });
+      }
+      
+      // Check if vehicles exist
+      const vehicle1 = await this.getVehicleByCode("CRI 433 AF 151201");
+      if (!vehicle1) {
+        await this.createVehicle({
+          code: "CRI 433 AF 151201",
+          displayName: "CRI 433 AF"
+        });
+      }
+      
+      const vehicle2 = await this.getVehicleByCode("CRI 522 AF 151202");
+      if (!vehicle2) {
+        await this.createVehicle({
+          code: "CRI 522 AF 151202",
+          displayName: "CRI 522 AF"
+        });
+      }
+    } catch (error) {
+      console.error("Error seeding initial data:", error);
+    }
   }
   
   // User operations
@@ -174,6 +224,13 @@ export class DatabaseStorage implements IStorage {
       .where(eq(inventory.id, id))
       .returning();
     return item || undefined;
+  }
+  
+  async deleteInventoryItem(id: number): Promise<boolean> {
+    const result = await db
+      .delete(inventory)
+      .where(eq(inventory.id, id));
+    return result.rowCount > 0;
   }
   
   async getAllInventoryItems(): Promise<InventoryItem[]> {
