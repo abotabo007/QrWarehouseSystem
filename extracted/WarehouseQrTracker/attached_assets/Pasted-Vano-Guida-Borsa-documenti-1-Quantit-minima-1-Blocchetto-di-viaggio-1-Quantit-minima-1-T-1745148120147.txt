@@ -1,0 +1,232 @@
+Vano Guida
+Borsa documenti: 1 (Quantità minima: 1)
+
+Blocchetto di viaggio: 1 (Quantità minima: 1)
+
+Tariffario: 1 (Quantità minima: 1)
+
+Scheda carburante: 3 (Quantità minima: 3)
+
+Schede 118: 3 (Quantità minima: 3)
+
+Carlina: 1 (Quantità minima: 1)
+
+Navigatore: 1 (Quantità minima: 1)
+
+Carta circola (fotocopia): 1 (Quantità minima: 1)
+
+Cartello "Fuori servizio": 1 (Quantità minima: 1)
+
+Elenco dotazione ambulanza: 1 (Quantità minima: 1)
+
+Tagliando assicurazione: 1 (Quantità minima: 1)
+
+Cert. idoneità ASL (fotocopia): 1 (Quantità minima: 1)
+
+Set Sicurezza
+Giubbotto alta visibilità: 1 (Quantità minima: 1)
+
+Triangolo: 1 (Quantità minima: 1)
+
+Estintore cabina: 1 (Quantità minima: 1)
+
+Torcia: 1 (Quantità minima: 1)
+
+Guanti da lavoro: 2 (PMA) (Quantità minima: 2)
+
+Cassetta porta attrezzi: 1 (Quantità minima: 1)
+
+Gel battericida lavamani: 1 (Quantità minima: 1)
+
+Guanti:
+
+Taglia S: confezione (Quantità minima: 1 confezione)
+
+Taglia M: confezione (Quantità minima: 1 confezione)
+
+Taglia L: confezione (Quantità minima: 1 confezione)
+
+Taglia XL: confezione (Quantità minima: 1 confezione)
+
+Vano Sanitario
+Cassetti: 1 (Quantità minima: 1)
+
+Forbici garze: 4 (Quantità minima: 4)
+
+Garze non sterili 10x10: 1 (Quantità minima: 1)
+
+Garze non sterili 30x30: 1 (Quantità minima: 1)
+
+Garze sterili: 4 (Quantità minima: 4)
+
+Rasoio: 1 (Quantità minima: 1)
+
+Laccio emostatico (LEA): 2 (Quantità minima: 2)
+
+Tellino sterile: 2 (Quantità minima: 2)
+
+Nastrotela: 2 (Quantità minima: 2)
+
+Cerotti medicati in scatola: 1 (Quantità minima: 1)
+
+Bende orlate medie: 2 (Quantità minima: 2)
+
+Bende orlate grandi: 2 (Quantità minima: 2)
+
+Benda auto-adesiva grande: 1 (Quantità minima: 1)
+
+Benda auto-adesiva piccola: 1 (Quantità minima: 1)
+
+Disinfettante cutaneo: 1 (Quantità minima: 1)
+
+Acqua ossigenata: 1 (Quantità minima: 1)
+
+Ghiaccio istantaneo in pacco: 4 (Quantità minima: 4)
+
+Ghiaccio spray in bomboletta: 1 (Quantità minima: 1)
+
+Coperta isotermica: 4 (Quantità minima: 4)
+
+Siringhe: 2 (Quantità minima: 2)
+
+Cavo 12 V aspiratore: 1 (Quantità minima: 1)
+
+Forbici Robin: 1 (Quantità minima: 1)
+
+D.A.E. (Defibrillatore Automatico Esterno)
+Piastre adulto: 1 (Quantità minima: 1)
+
+Piastre pediatriche: 1 (Quantità minima: 1)
+
+Lenzuolo sterile: 1 (Quantità minima: 1)
+
+Rasoio monouso: 1 (Quantità minima: 1)
+
+Manuale istruzioni: 1 (Quantità minima: 1)
+
+Strumenti Elettromedicali
+Aspiratore fisso: 1 (Quantità minima: 1)
+
+Aspiratore portatile: 1 (Quantità minima: 1)
+
+Sacchetti di scorta: 2 (Quantità minima: 2)
+
+Ventilatore polmonare: 1 (Quantità minima: 1)
+
+Frigorifero: 1 (Quantità minima: 1)
+
+Presidi
+Collari diverse misure: 1 (Quantità minima: 1)
+
+Barella principale: 1 (Quantità minima: 1)
+
+Coperta: 1 (Quantità minima: 1)
+
+Barella atraumatica: 1 (Quantità minima: 1)
+
+Cinghie cucchiaio: 3 (Quantità minima: 3)
+
+Telo portafetiti: 1 (Quantità minima: 1)
+
+Set infettivi: 3 (Quantità minima: 3)
+
+KED: 1 (Quantità minima: 1)
+
+Sedia portantina: 1 (Quantità minima: 1)
+
+Elmetto antine con occhiali: 3 (Quantità minima: 3)
+
+Occhiali protettivi: 3 (Quantità minima: 3)
+
+Mascherine chirurgiche: 5 (Quantità minima: 5)
+
+Estintore 2 kg: 2 (Quantità minima: 2)
+
+Multipresa mobile (ciabatta): 1 (Quantità minima: 1)
+
+Bombolino O2 da 3 L. a vista: 1 (Quantità minima: 1)
+
+Rilevatore monossido: 1 (Quantità minima: 1)
+
+Asse Spinale Adulti
+Asse spinale: 1 (Quantità minima: 1)
+
+Base fermacapo: 1 (Quantità minima: 1)
+
+Cuscini fermacapo: 2 (Quantità minima: 2)
+
+Ragno: 1 (Quantità minima: 1)
+
+Cinghie fermacapo: 2 (Quantità minima: 2)
+
+Asse Spinale Pediatrica
+Asse spinale: 1 (Quantità minima: 1)
+
+Base fermacapo: 1 (Quantità minima: 1)
+
+Cuscini fermacapo: 2 (Quantità minima: 2)
+
+Ragno: 1 (Quantità minima: 1)
+
+Cinghie fermacapo: 2 (Quantità minima: 2)
+
+Steccobende
+Piccola: 1 (Quantità minima: 1)
+
+Media: 1 (Quantità minima: 1)
+
+Grande: 1 (Quantità minima: 1)
+
+Sondini Aspiratore
+Nero CH 10: 1 (Quantità minima: 1)
+
+Bianco CH 12: 1 (Quantità minima: 1)
+
+Verde CH 14: 1 (Quantità minima: 1)
+
+Arancio CH 16: 1 (Quantità minima: 1)
+
+Rosso CH 18: 1 (Quantità minima: 1)
+
+Giallo CH 20: 1 (Quantità minima: 1)
+
+Maschere Ossigeno
+Adulto con reservoir: 3 (Quantità minima: 3)
+
+Adulto senza reservoir: 2 (Quantità minima: 2)
+
+Pediatrico con reservoir: 1 (Quantità minima: 1)
+
+Pediatrico senza reservoir: 1 (Quantità minima: 1)
+
+Tubo raccordo O2: 1 (Quantità minima: 1)
+
+Occhialini O2: 1 (Quantità minima: 1)
+
+Igiene del Mezzo
+Padella: 1 (Quantità minima: 1)
+
+Pappagallo: 1 (Quantità minima: 1)
+
+Bacinella: 1 (Quantità minima: 1)
+
+Spruzzino disinfettante: 1 (Quantità minima: 1)
+
+Carta: 1 (Quantità minima: 1)
+
+Contenitore taglienti: 1 (Quantità minima: 1)
+
+Sacchetti rifiuti: 5 (Quantità minima: 5)
+
+Zaino Pediatrico
+Sacca Parto Gialla
+
+Telli sterili: 3 (Quantità minima: 3)
+
+Clamp: 2 (Quantità minima: 2)
+
+Metalline baby: 2 (Quantità minima: 2)
+
+Metallina adulti: 1 (Quantità minima: 1)
+
+Aspiramico: 1 (Quantità minima: 1)

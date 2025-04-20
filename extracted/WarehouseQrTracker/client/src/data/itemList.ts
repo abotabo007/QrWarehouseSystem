@@ -1,0 +1,152 @@
+interface ChecklistItem {
+  name: string;
+  minimumQuantity: number;
+}
+
+interface ChecklistData {
+  [section: string]: ChecklistItem[];
+}
+
+const checklistData: ChecklistData = {
+  "Vano Guida": [
+    { name: "Borsa documenti", minimumQuantity: 1 },
+    { name: "Blocchetto di viaggio", minimumQuantity: 1 },
+    { name: "Tariffario", minimumQuantity: 1 },
+    { name: "Scheda carburante", minimumQuantity: 3 },
+    { name: "Schede 118", minimumQuantity: 3 },
+    { name: "Carlina", minimumQuantity: 1 },
+    { name: "Navigatore", minimumQuantity: 1 },
+    { name: "Carta circola (fotocopia)", minimumQuantity: 1 },
+    { name: "Cartello \"Fuori servizio\"", minimumQuantity: 1 },
+    { name: "Elenco dotazione ambulanza", minimumQuantity: 1 },
+    { name: "Tagliando assicurazione", minimumQuantity: 1 },
+    { name: "Cert. idoneità ASL (fotocopia)", minimumQuantity: 1 },
+  ],
+  "Set Sicurezza": [
+    { name: "Giubbotto alta visibilità", minimumQuantity: 1 },
+    { name: "Triangolo", minimumQuantity: 1 },
+    { name: "Estintore cabina", minimumQuantity: 1 },
+    { name: "Torcia", minimumQuantity: 1 },
+    { name: "Guanti da lavoro", minimumQuantity: 2 },
+    { name: "Cassetta porta attrezzi", minimumQuantity: 1 },
+    { name: "Gel battericida lavamani", minimumQuantity: 1 },
+  ],
+  "Guanti": [
+    { name: "Taglia S", minimumQuantity: 1 },
+    { name: "Taglia M", minimumQuantity: 1 },
+    { name: "Taglia L", minimumQuantity: 1 },
+    { name: "Taglia XL", minimumQuantity: 1 },
+  ],
+  "Vano Sanitario": [
+    { name: "Cassetti", minimumQuantity: 1 },
+    { name: "Forbici garze", minimumQuantity: 4 },
+    { name: "Garze non sterili 10x10", minimumQuantity: 1 },
+    { name: "Garze non sterili 30x30", minimumQuantity: 1 },
+    { name: "Garze sterili", minimumQuantity: 4 },
+    { name: "Rasoio", minimumQuantity: 1 },
+    { name: "Laccio emostatico (LEA)", minimumQuantity: 2 },
+    { name: "Tellino sterile", minimumQuantity: 2 },
+    { name: "Nastrotela", minimumQuantity: 2 },
+    { name: "Cerotti medicati in scatola", minimumQuantity: 1 },
+    { name: "Bende orlate medie", minimumQuantity: 2 },
+    { name: "Bende orlate grandi", minimumQuantity: 2 },
+    { name: "Benda auto-adesiva grande", minimumQuantity: 1 },
+    { name: "Benda auto-adesiva piccola", minimumQuantity: 1 },
+    { name: "Disinfettante cutaneo", minimumQuantity: 1 },
+    { name: "Acqua ossigenata", minimumQuantity: 1 },
+    { name: "Ghiaccio istantaneo in pacco", minimumQuantity: 4 },
+    { name: "Ghiaccio spray in bomboletta", minimumQuantity: 1 },
+    { name: "Coperta isotermica", minimumQuantity: 4 },
+    { name: "Siringhe", minimumQuantity: 2 },
+    { name: "Cavo 12 V aspiratore", minimumQuantity: 1 },
+    { name: "Forbici Robin", minimumQuantity: 1 },
+  ],
+  "D.A.E. (Defibrillatore Automatico Esterno)": [
+    { name: "Piastre adulto", minimumQuantity: 1 },
+    { name: "Piastre pediatriche", minimumQuantity: 1 },
+    { name: "Lenzuolo sterile", minimumQuantity: 1 },
+    { name: "Rasoio monouso", minimumQuantity: 1 },
+    { name: "Manuale istruzioni", minimumQuantity: 1 },
+  ],
+  "Strumenti Elettromedicali": [
+    { name: "Aspiratore fisso", minimumQuantity: 1 },
+    { name: "Aspiratore portatile", minimumQuantity: 1 },
+    { name: "Sacchetti di scorta", minimumQuantity: 2 },
+    { name: "Ventilatore polmonare", minimumQuantity: 1 },
+    { name: "Frigorifero", minimumQuantity: 1 },
+  ],
+  "Presidi": [
+    { name: "Collari diverse misure", minimumQuantity: 1 },
+    { name: "Barella principale", minimumQuantity: 1 },
+    { name: "Coperta", minimumQuantity: 1 },
+    { name: "Barella atraumatica", minimumQuantity: 1 },
+    { name: "Cinghie cucchiaio", minimumQuantity: 3 },
+    { name: "Telo portafetiti", minimumQuantity: 1 },
+    { name: "Set infettivi", minimumQuantity: 3 },
+    { name: "KED", minimumQuantity: 1 },
+    { name: "Sedia portantina", minimumQuantity: 1 },
+    { name: "Elmetto antine con occhiali", minimumQuantity: 3 },
+    { name: "Occhiali protettivi", minimumQuantity: 3 },
+    { name: "Mascherine chirurgiche", minimumQuantity: 5 },
+    { name: "Estintore 2 kg", minimumQuantity: 2 },
+    { name: "Multipresa mobile (ciabatta)", minimumQuantity: 1 },
+    { name: "Bombolino O2 da 3 L. a vista", minimumQuantity: 1 },
+    { name: "Rilevatore monossido", minimumQuantity: 1 },
+  ],
+  "Asse Spinale Adulti": [
+    { name: "Asse spinale", minimumQuantity: 1 },
+    { name: "Base fermacapo", minimumQuantity: 1 },
+    { name: "Cuscini fermacapo", minimumQuantity: 2 },
+    { name: "Ragno", minimumQuantity: 1 },
+    { name: "Cinghie fermacapo", minimumQuantity: 2 },
+  ],
+  "Asse Spinale Pediatrica": [
+    { name: "Asse spinale", minimumQuantity: 1 },
+    { name: "Base fermacapo", minimumQuantity: 1 },
+    { name: "Cuscini fermacapo", minimumQuantity: 2 },
+    { name: "Ragno", minimumQuantity: 1 },
+    { name: "Cinghie fermacapo", minimumQuantity: 2 },
+  ],
+  "Steccobende": [
+    { name: "Piccola", minimumQuantity: 1 },
+    { name: "Media", minimumQuantity: 1 },
+    { name: "Grande", minimumQuantity: 1 },
+  ],
+  "Sondini Aspiratore": [
+    { name: "Nero CH 10", minimumQuantity: 1 },
+    { name: "Bianco CH 12", minimumQuantity: 1 },
+    { name: "Verde CH 14", minimumQuantity: 1 },
+    { name: "Arancio CH 16", minimumQuantity: 1 },
+    { name: "Rosso CH 18", minimumQuantity: 1 },
+    { name: "Giallo CH 20", minimumQuantity: 1 },
+  ],
+  "Maschere Ossigeno": [
+    { name: "Adulto con reservoir", minimumQuantity: 3 },
+    { name: "Adulto senza reservoir", minimumQuantity: 2 },
+    { name: "Pediatrico con reservoir", minimumQuantity: 1 },
+    { name: "Pediatrico senza reservoir", minimumQuantity: 1 },
+    { name: "Tubo raccordo O2", minimumQuantity: 1 },
+    { name: "Occhialini O2", minimumQuantity: 1 },
+  ],
+  "Igiene del Mezzo": [
+    { name: "Padella", minimumQuantity: 1 },
+    { name: "Pappagallo", minimumQuantity: 1 },
+    { name: "Bacinella", minimumQuantity: 1 },
+    { name: "Spruzzino disinfettante", minimumQuantity: 1 },
+    { name: "Carta", minimumQuantity: 1 },
+    { name: "Contenitore taglienti", minimumQuantity: 1 },
+    { name: "Sacchetti rifiuti", minimumQuantity: 5 },
+  ],
+  "Zaino Pediatrico": [
+    { name: "Sacca Parto Gialla", minimumQuantity: 1 },
+  ],
+  "Sacca Parto Gialla": [
+    { name: "Telli sterili", minimumQuantity: 3 },
+    { name: "Clamp", minimumQuantity: 2 },
+    { name: "Metalline baby", minimumQuantity: 2 },
+    { name: "Metallina adulti", minimumQuantity: 1 },
+    { name: "Aspiramico", minimumQuantity: 1 },
+  ]
+};
+
+export default checklistData;

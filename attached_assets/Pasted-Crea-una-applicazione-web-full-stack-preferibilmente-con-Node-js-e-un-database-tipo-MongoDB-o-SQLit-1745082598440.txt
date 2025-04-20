@@ -1,0 +1,114 @@
+Crea una applicazione web full-stack (preferibilmente con Node.js e un database tipo MongoDB o SQLite) che svolga le seguenti funzioni per la CRI Acqui Terme. L’interfaccia deve essere user-friendly, moderna, accessibile da dispositivi mobili e ottimizzata per l’uso tramite scansione QR code.
+
+🚑 1. QR CODE VEICOLI
+Ogni veicolo (11 in totale, di cui 9 ambulanze) ha un QR code univoco.
+
+Una volta scansionato, apre la pagina corrispondente al veicolo e non deve essere possibile cambiare veicolo dopo la scansione.
+
+Lista veicoli:
+
+CRI 433 AF 151201
+
+CRI 990 AE 151203
+
+CRI 454 AC 151205
+
+CRI 434 AF 151206
+
+CRI 704 AF 151208
+
+CRI 033 AH 151209
+
+CRI 363 AA 151210
+
+CRI 197 AH 151211
+
+CRI 499 AB 151212
+
+CRI 281 AE 151217
+
+🔐 2. AUTENTICAZIONE UTENTE
+Login con Nome, Cognome e Codice Fiscale.
+
+Una volta loggato e scansionato il QR, l’utente visualizza la checklist del veicolo selezionato.
+
+📋 3. CHECKLIST VEICOLO
+La pagina mostra una checklist di presidi (puoi inventare i nomi: es. Borsa medica, DAE, Aspiratore, Barella, Collari, Zaino Trauma, Guanti, Mascherine, Kit ustioni...).
+
+Ogni presidio ha:
+
+✅ Presente
+
+❌ Mancante (con spunta “prelevato da armadietto”)
+
+Per il presidio OSSIGENO bisogna inserire la percentuale presente nel veicolo.
+
+🕒 4. REGISTRAZIONE DELLA CHECKLIST
+Ogni checklist va salvata con:
+
+Nome e cognome del volontario
+
+Codice fiscale
+
+Veicolo
+
+Data e ora
+
+Stato dei presidi
+
+Percentuale ossigeno
+
+🛠️ 5. PANNELLO ADMIN
+Accessibile solo da utenti admin.
+
+Deve mostrare tutte le checklist eseguite, con filtri per:
+
+Data
+
+Veicolo
+
+Nome volontario
+
+Visualizzazione leggibile e ordinata delle informazioni.
+
+📦 6. MENU GESTIONE MAGAZZINO
+Accessibile solo da 2 utenti specifici (puoi creare utenti admin hardcoded es: "magazzino1", "magazzino2").
+
+Deve includere:
+
+Elenco materiali
+
+Quantità disponibili
+
+Scadenze
+
+Pulsanti per:
+
+Aggiungi materiale
+
+Rimuovi materiale
+
+Aggiorna stato
+
+Filtri e ricerca rapida
+
+🎨 7. INTERFACCIA UTENTE
+Moderna, colorata ma professionale, chiara e ottimizzata per smartphone.
+
+Utilizza icone, bottoni grandi, e uno stile simile a un’app mobile.
+
+➕ EXTRA (se possibile)
+Salvataggio dati anche offline/localStorage (opzionale)
+
+Notifica di conferma dopo l’invio della checklist
+
+🔑 Tecnologie consigliate:
+Frontend: HTML, CSS (Tailwind o Bootstrap), JavaScript
+
+Backend: Node.js con Express
+
+Database: MongoDB (o SQLite)
+
+QR Code: ogni codice QR punta a una route tipo /veicolo/CRI-433-AF-151201
+
+Fammi vedere il codice sorgente con commenti chiari per ogni parte.
